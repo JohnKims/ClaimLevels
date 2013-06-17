@@ -42,7 +42,7 @@ public class ClaimLevels extends JavaPlugin {
 		}
 		pm.registerEvents(new playerListener(this), this);
 		getConfig().options().copyDefaults(true);
-		getConfig().addDefault("startupAmount", 50);
+		getConfig().addDefault("startupAmount", 0);
 		saveConfig();
 		loadLang();
 		dm.setupData(this);
