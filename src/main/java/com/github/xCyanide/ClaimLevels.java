@@ -222,9 +222,13 @@ public class ClaimLevels extends JavaPlugin {
 				sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER_ONLY);
 			}
 		} else if(label.equalsIgnoreCase("clreload")) { 
+			if(sender.hasPermission("claimlevels.reload")) {
 			reloadConfig();
 			dm.reloadData();
 			sender.sendMessage(ChatColor.GREEN + "ClaimLevels config reloaded");
+			} else if(!(sender.hasPermission("claimlevels.reload"))) {
+				sender.sendMessage(Lang.PREFIX.toString() + Lang.NO_PERMS);
+			}
 		} else if(label.equalsIgnoreCase("redeem")) {
 			if(!(sender instanceof Player)) {
 				sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER_ONLY);
