@@ -32,7 +32,7 @@
   
     <build>
     <defaultGoal>clean package</defaultGoal>
-    <finalName>RedBull</finalName>
+    <finalName>ClaimLevels</finalName>
     <resources>
       <resource>
         <targetPath>.</targetPath>
@@ -53,9 +53,6 @@
         <executions>
           <execution>
             <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
             <configuration>
               <minimizeJar>true</minimizeJar>
               <artifactSet>
@@ -66,9 +63,6 @@
             </configuration>
           </execution>
         </executions>
-        <configuration>
-          <finalName>uber-${artifactId}-${version}</finalName>
-        </configuration>
       </plugin>
     </plugins>
   </build>
