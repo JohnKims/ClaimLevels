@@ -546,8 +546,9 @@ public class ClaimLevels extends JavaPlugin {
 						} else if(!(p.hasPermission("mcmmo.skills.mining"))) {
 							p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 						}
-				} else if(label.equalsIgnoreCase("herbalism")) {
+				} else if(skillType.equalsIgnoreCase("herbalism")) {;
 					if(p.hasPermission("mcmmo.skills.herbalism")) {
+						Bukkit.broadcastMessage("Test 1");
 						cap = ExperienceAPI.getLevelCap(skillType);
 						try {
 							Integer.parseInt(args[1]);
