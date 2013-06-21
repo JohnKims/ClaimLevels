@@ -548,7 +548,6 @@ public class ClaimLevels extends JavaPlugin {
 						}
 				} else if(skillType.equalsIgnoreCase("herbalism")) {;
 					if(p.hasPermission("mcmmo.skills.herbalism")) {
-						Bukkit.broadcastMessage("Test 1");
 						cap = ExperienceAPI.getLevelCap(skillType);
 						try {
 							Integer.parseInt(args[1]);
