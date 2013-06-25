@@ -380,7 +380,7 @@ public class ClaimLevels extends JavaPlugin {
 					} else if(!(p.hasPermission("mcmmo.skills.archery"))) {
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
 					}
-				} else if(skillType.equalsIgnoreCase("axe")) {
+				} else if(skillType.equalsIgnoreCase("axes")) {
 					if(p.hasPermission("mcmmo.skills.axes")) {
 						cap = ExperienceAPI.getLevelCap(skillType);
 						try {
