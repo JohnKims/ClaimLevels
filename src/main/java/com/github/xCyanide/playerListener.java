@@ -7,11 +7,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 
-public class playerListener implements Listener {
-	
-	//Sponsored by Starlite Hosting - http://starlite-hosting.com
+import com.github.xCyanide.Utils.DataManager;
 
+public class playerListener implements Listener {
+
+	@SuppressWarnings("unused")
 	private ClaimLevels plugin;
+	DataManager dm = DataManager.getInstance();
 	
 	public playerListener(ClaimLevels plugin) {
 		this.plugin = plugin;
@@ -23,12 +25,12 @@ public class playerListener implements Listener {
 		File playerDat = new File("world/players/"+ player.getName() + ".dat");
 		if(!playerDat.exists()) {
 			String playerName = player.getName().toLowerCase();
-			int startupAmount = plugin.getConfig().getInt("startAmount");
+			int startupAmount = dm.getData().getInt("startAmount");
 			if(startupAmount == 0) {
-				//do nothing if startupAmount is 0
+				dm.getData().set(playerName.toLowerCase() + ".credits", 0);
 			} else {
-				plugin.getConfig().set(playerName.toLowerCase() + ".credits", startupAmount);
-				plugin.saveConfig();
+				dm.getData().set(playerName.toLowerCase() + ".credits", startupAmount);
+				dm.saveData();
 			}
 		}
 	}
@@ -36,7 +38,7 @@ public class playerListener implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		int levels = plugin.getConfig().getInt(player.getName().toLowerCase() + ".credits");
+		int levels = dm.getData().getInt(player.getName().toLowerCase() + ".credits");
 		if(levels == 0) {
 			//do nothing!
 		} else {
