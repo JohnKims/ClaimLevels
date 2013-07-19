@@ -112,7 +112,9 @@ public class ClaimLevels extends JavaPlugin {
 							target.sendMessage(ChatColor.GREEN + " You have received " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
 							target.sendMessage(ChatColor.GREEN + " Do /credits to check how many credits you have");
 							return true;
-						} 		
+						} else {
+							sender.sendMessage("That player is not in the data file");
+						}
 					}
 				} else {
 					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /addcredits <player> <credits>");
@@ -154,9 +156,9 @@ public class ClaimLevels extends JavaPlugin {
 							sender.sendMessage(Lang.PREFIX.toString() + ChatColor.YELLOW + " " + args[0] + ChatColor.GREEN + " already has " + ChatColor.GOLD + "0" + ChatColor.GREEN + " credits");
 							return true;
 						} 	
-					} else if(offlineTarget.hasPlayedBefore() == false) { 
+					} else if(target == null && offlineTarget.hasPlayedBefore() == false) { 
 						sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.PLAYER);
-					} else {
+					} else if(target != null) {
 						String targetPlayer = target.getName().toLowerCase();
 						String targetName = dm.getData().getString(targetPlayer);
 						try {
