@@ -24,7 +24,6 @@ import com.gmail.nossr50.api.ExperienceAPI;
 
 public class ClaimLevels extends JavaPlugin {
 
-	//Sponsored by Starlite Hosting - http://starlite-hosting.com
 
 	public static YamlConfiguration LANG;
 	public static File LANG_FILE;
@@ -33,7 +32,6 @@ public class ClaimLevels extends JavaPlugin {
 	public static Logger log;
 
 	File config;
-
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();
 		if(pm.isPluginEnabled("mcMMO") == false) {
@@ -88,11 +86,10 @@ public class ClaimLevels extends JavaPlugin {
 						dm.saveData();
 						sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have given " + targetPlayer + " " + ChatColor.GOLD + levels + ChatColor.GREEN + " credits");
 						return true;
-					} else if(offlineTarget.hasPlayedBefore() == false) { 
+					} else if(target == null && offlineTarget.hasPlayedBefore() == false) { 
 						sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER);
 					} else {
 						String targetPlayer = target.getName().toLowerCase();
-						@SuppressWarnings("unused")
 						String targetName = dm.getData().getString(targetPlayer);
 						try {
 							Integer.parseInt(args[1]);
@@ -106,7 +103,7 @@ public class ClaimLevels extends JavaPlugin {
 							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
 							return true;
 						}
-						if (target != null) {
+						if (targetName != null) {
 							int oldAmount = dm.getData().getInt(targetPlayer + ".credits");
 							int newAmount = oldAmount + credits;
 							dm.getData().set(targetPlayer + ".credits", newAmount);
@@ -161,7 +158,6 @@ public class ClaimLevels extends JavaPlugin {
 						sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.PLAYER);
 					} else {
 						String targetPlayer = target.getName().toLowerCase();
-						@SuppressWarnings("unused")
 						String targetName = dm.getData().getString(targetPlayer);
 						try {
 							Integer.parseInt(args[1]);
@@ -175,7 +171,7 @@ public class ClaimLevels extends JavaPlugin {
 							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
 							return true;
 						}
-						if (target != null) {
+						if (targetName != null) {
 							int oldAmount = dm.getData().getInt(targetPlayer + ".credits");
 							if(credits <= oldAmount) {
 								int newAmount = oldAmount - credits;
