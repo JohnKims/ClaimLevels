@@ -88,7 +88,7 @@ public class ClaimLevels extends JavaPlugin {
 						return true;
 					} else if(target == null && offlineTarget.hasPlayedBefore() == false) { 
 						sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER);
-					} else {
+					} else if(target != null) {
 						String targetPlayer = target.getName().toLowerCase();
 						String targetName = dm.getData().getString(targetPlayer);
 						try {
