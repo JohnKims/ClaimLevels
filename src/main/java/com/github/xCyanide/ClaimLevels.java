@@ -267,7 +267,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-credits;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, credits);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + credits + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -301,7 +306,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -335,7 +345,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -369,7 +384,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -403,7 +423,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -437,7 +462,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -471,7 +501,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -505,7 +540,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -539,7 +579,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -573,7 +618,12 @@ public class ClaimLevels extends JavaPlugin {
 					}
 
 					int newamount = oldamount-levels;
-					dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+					if (newamount == 0) {
+						dm.getData().set(p.getName().toLowerCase(), null);
+					}
+					else {
+						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+					}
 					dm.saveData();
 					ExperienceAPI.addLevel(p, skillType, levels);
 					p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -607,7 +657,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
@@ -641,7 +696,12 @@ public class ClaimLevels extends JavaPlugin {
 						}
 
 						int newamount = oldamount-levels;
-						dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						if (newamount == 0) {
+							dm.getData().set(p.getName().toLowerCase(), null);
+						}
+						else {
+							dm.getData().set(p.getName().toLowerCase() + ".credits", newamount);
+						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
 						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
