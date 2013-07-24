@@ -103,18 +103,17 @@ public class ClaimLevels extends JavaPlugin {
 							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
 							return true;
 						}
-						if (targetName != null) {
-							int oldAmount = dm.getData().getInt(targetPlayer + ".credits");
-							int newAmount = oldAmount + credits;
-							dm.getData().set(targetPlayer + ".credits", newAmount);
-							dm.saveData();
-							sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have given " + targetPlayer + " " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
-							target.sendMessage(ChatColor.GREEN + " You have received " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
-							target.sendMessage(ChatColor.GREEN + " Do /credits to check how many credits you have");
-							return true;
-						} else {
-							sender.sendMessage("That player is not in the data file");
+						if (targetName == null) {
+							 dm.getData().set(targetPlayer.toLowerCase() + ".credits", dm.getData().getInt("startAmount"));
 						}
+						int oldAmount = dm.getData().getInt(targetPlayer + ".credits");
+						int newAmount = oldAmount + credits;
+						dm.getData().set(targetPlayer + ".credits", newAmount);
+						dm.saveData();
+						sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have given " + targetPlayer + " " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
+						target.sendMessage(ChatColor.GREEN + " You have received " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
+						target.sendMessage(ChatColor.GREEN + " Do /credits to check how many credits you have");
+						return true;
 					}
 				} else {
 					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /addcredits <player> <credits>");
@@ -739,5 +738,4 @@ public class ClaimLevels extends JavaPlugin {
 		return LANG_FILE;
 	}
 }
-
 
