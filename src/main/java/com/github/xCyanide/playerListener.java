@@ -22,12 +22,11 @@ public class playerListener implements Listener {
 	@EventHandler
 	public void onLogin(PlayerLoginEvent event) {
 		Player player = event.getPlayer();
-		File playerDat = new File("world/players/"+ player.getName() + ".dat");
-		if(!playerDat.exists()) {
+		if(!player.hasPlayedBefore()) {
 			String playerName = player.getName().toLowerCase();
 			int startupAmount = dm.getData().getInt("startAmount");
 			if(startupAmount == 0) {
-				dm.getData().set(playerName.toLowerCase() + ".credits", 0);
+				// No need to do anything
 			} else {
 				dm.getData().set(playerName.toLowerCase() + ".credits", startupAmount);
 				dm.saveData();
