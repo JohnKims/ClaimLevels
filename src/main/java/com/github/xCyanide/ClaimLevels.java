@@ -60,7 +60,7 @@ public class ClaimLevels extends JavaPlugin {
 		if(label.equalsIgnoreCase("addcredits")) {
 			if(sender.hasPermission("credits.add")) {
 				if(args.length <= 1) {
-					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /addcredits <player> <levels>");
+					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "/addcredits <player> <levels>");
 				} else if (args.length == 2) {
 					Player target = Bukkit.getServer().getPlayer(args[0]);
 					OfflinePlayer offlineTarget = Bukkit.getServer().getOfflinePlayer(args[0]);
@@ -72,21 +72,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt( args[1] );
 						if(levels <= 0) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						int oldAmount = dm.getData().getInt(targetPlayer + ".credits");
 						int newAmount = oldAmount + levels;
 						dm.getData().set(targetPlayer + ".credits", newAmount);
 						dm.saveData();
-						sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have given " + targetPlayer + " " + ChatColor.GOLD + levels + ChatColor.GREEN + " credits");
+						sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have given " + targetPlayer + " " + ChatColor.GOLD + levels + ChatColor.GREEN + " credits");
 						return true;
-					} else if(target == null && offlineTarget.hasPlayedBefore() == false) { 
+					} else if(target == null && offlineTarget.hasPlayedBefore() == false) {
 						sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER);
 					} else if(target != null) {
 						String targetPlayer = target.getName().toLowerCase();
@@ -95,12 +95,12 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int credits = Integer.parseInt( args[1] );
 						if(credits <= 0) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if (targetName == null) {
@@ -110,13 +110,13 @@ public class ClaimLevels extends JavaPlugin {
 						int newAmount = oldAmount + credits;
 						dm.getData().set(targetPlayer + ".credits", newAmount);
 						dm.saveData();
-						sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have given " + targetPlayer + " " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
-						target.sendMessage(ChatColor.GREEN + " You have received " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
-						target.sendMessage(ChatColor.GREEN + " Do /credits to check how many credits you have");
+						sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have given " + targetPlayer + " " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
+						target.sendMessage(ChatColor.GREEN + "You have received " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
+						target.sendMessage(ChatColor.GREEN + "Do /credits to check how many credits you have");
 						return true;
 					}
 				} else {
-					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /addcredits <player> <credits>");
+					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "/addcredits <player> <credits>");
 				}
 			} else if(!(sender.hasPermission("credits.add"))) {
 				sender.sendMessage(Lang.PREFIX.toString() + Lang.NO_PERMS);
@@ -124,7 +124,7 @@ public class ClaimLevels extends JavaPlugin {
 		} else if(label.equalsIgnoreCase("takecredits")) {
 			if(sender.hasPermission("credits.take")) {
 				if(args.length <= 1) {
-					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /takecredits <player> <credits>");
+					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "/takecredits <player> <credits>");
 				} else if (args.length == 2) {
 					Player target = Bukkit.getServer().getPlayer(args[0]);
 					OfflinePlayer offlineTarget = Bukkit.getServer().getOfflinePlayer(args[0]);
@@ -136,12 +136,12 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt( args[1] );
 						if(levels <= 0) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						int oldAmount = dm.getData().getInt(targetPlayer + ".credits");
@@ -149,14 +149,14 @@ public class ClaimLevels extends JavaPlugin {
 							int newAmount = oldAmount - levels;
 							dm.getData().set(targetPlayer + ".credits", newAmount);
 							dm.saveData();
-							sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have taken " + ChatColor.GOLD + levels + ChatColor.GREEN + " levels from " + targetPlayer);
+							sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have taken " + ChatColor.GOLD + levels + ChatColor.GREEN + " levels from " + targetPlayer);
 							return true;
 						} else {
-							sender.sendMessage(Lang.PREFIX.toString() + ChatColor.YELLOW + " " + args[0] + ChatColor.GREEN + " already has " + ChatColor.GOLD + "0" + ChatColor.GREEN + " credits");
+							sender.sendMessage(Lang.PREFIX.toString() + ChatColor.YELLOW + args[0] + ChatColor.GREEN + " already has " + ChatColor.GOLD + "0" + ChatColor.GREEN + " credits");
 							return true;
-						} 	
-					} else if(target == null && offlineTarget.hasPlayedBefore() == false) { 
-						sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.PLAYER);
+						}
+					} else if(target == null && offlineTarget.hasPlayedBefore() == false) {
+						sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER);
 					} else if(target != null) {
 						String targetPlayer = target.getName().toLowerCase();
 						String targetName = dm.getData().getString(targetPlayer);
@@ -164,12 +164,12 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int credits = Integer.parseInt( args[1] );
 						if(credits <= 0) {
-							sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							sender.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if (targetName != null) {
@@ -178,16 +178,16 @@ public class ClaimLevels extends JavaPlugin {
 								int newAmount = oldAmount - credits;
 								dm.getData().set(targetPlayer + ".credits", newAmount);
 								dm.saveData();
-								sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have taken " + ChatColor.GOLD + credits + " credits from " + ChatColor.GREEN + targetPlayer);
+								sender.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have taken " + ChatColor.GOLD + credits + " credits from " + ChatColor.GREEN + targetPlayer);
 								return true;
 							} else {
-								sender.sendMessage(Lang.PREFIX.toString() + ChatColor.YELLOW + " " + args[0] + ChatColor.GREEN + " already has " + ChatColor.GOLD + "0" + ChatColor.GREEN + "credits");
+								sender.sendMessage(Lang.PREFIX.toString() + ChatColor.YELLOW + args[0] + ChatColor.GREEN + " already has " + ChatColor.GOLD + "0" + ChatColor.GREEN + "credits");
 								return true;
-							} 
-						} 
-					} 
+							}
+						}
+					}
 				} else {
-					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /takecredits <player> <credits>");
+					sender.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "/takecredits <player> <credits>");
 				}
 			} else if(!(sender.hasPermission("credits.take"))) {
 				sender.sendMessage(Lang.PREFIX.toString() + Lang.NO_PERMS);
@@ -200,44 +200,44 @@ public class ClaimLevels extends JavaPlugin {
 					String playerName = dm.getData().getString(name);
 					if(playerName != null) {
 						int credits = dm.getData().getInt(name + ".credits");
-						p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.GREEN + " You have " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
+						p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.GREEN + "You have " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
 					} else {
-						p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.GREEN + " You have " + ChatColor.GOLD + 0 + ChatColor.GREEN + " credits");
+						p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.GREEN + "You have " + ChatColor.GOLD + 0 + ChatColor.GREEN + " credits");
 					}
 				} else if(args.length == 1) {
 					if(p.hasPermission("credits.inspect")) {
 						String targetName = dm.getData().getString(args[0].toLowerCase());
 						if(targetName != null) {
 							int credits = dm.getData().getInt(args[0].toLowerCase() + ".credits");
-							p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.YELLOW + " " + args[0].toLowerCase() + ChatColor.GREEN + " has " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
+							p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.YELLOW + args[0].toLowerCase() + ChatColor.GREEN + " has " + ChatColor.GOLD + credits + ChatColor.GREEN + " credits");
 						} else {
-							p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.YELLOW + " " + args[0].toLowerCase() + ChatColor.GREEN + " has" + ChatColor.GOLD + " 0" + ChatColor.GREEN + " credits");
+							p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.YELLOW + args[0].toLowerCase() + ChatColor.GREEN + " has" + ChatColor.GOLD + " 0" + ChatColor.GREEN + " credits");
 						}
 					} else if(!(p.hasPermission("credits.inspect"))) {
-						p.sendMessage(Lang.CREDITPREFIX.toString() + " " + Lang.NO_PERMS);
+						p.sendMessage(Lang.CREDITPREFIX.toString() + Lang.NO_PERMS);
 					}
 				} else {
-					p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.GREEN + " /credits <player>");
+					p.sendMessage(Lang.CREDITPREFIX.toString() + ChatColor.GREEN + "/credits <player>");
 				}
 			} else {
-				sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.PLAYER_ONLY);
+				sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER_ONLY);
 			}
-		} else if(label.equalsIgnoreCase("clreload")) { 
+		} else if(label.equalsIgnoreCase("clreload")) {
 			if(sender.hasPermission("claimlevels.reload")) {
 				reloadConfig();
 				dm.reloadData();
 				sender.sendMessage(ChatColor.GREEN + "ClaimLevels config reloaded");
 			} else if(!(sender.hasPermission("claimlevels.reload"))) {
-				sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.NO_PERMS);
+				sender.sendMessage(Lang.PREFIX.toString() + Lang.NO_PERMS);
 			}
 		} else if(label.equalsIgnoreCase("redeem")) {
 			if(!(sender instanceof Player)) {
-				sender.sendMessage(Lang.PREFIX.toString() + " " + Lang.PLAYER_ONLY);
+				sender.sendMessage(Lang.PREFIX.toString() + Lang.PLAYER_ONLY);
 				return true;
 			}
 			Player p = (Player) sender;
 			if(args.length <= 1) {
-				p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " /redeem <skill> <levels>");
+				p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "/redeem <skill> <levels>");
 			} else if(args.length == 2) {
 				String skillType = args[0];
 				int cap = 0;
@@ -248,21 +248,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int credits = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < credits) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(credits <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+credits>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -275,10 +275,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, credits);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + credits + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + credits + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.taming"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else  if(skillType.equalsIgnoreCase("swords")) {
 					if(p.hasPermission("mcmmo.skills.swords")) {
@@ -287,21 +287,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -314,10 +314,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.swords"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("unarmed")) {
 					if(p.hasPermission("mcmmo.skills.unarmed")) {
@@ -326,21 +326,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -353,10 +353,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.unarmed"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("archery")) {
 					if(p.hasPermission("mcmmo.skills.archery")) {
@@ -365,21 +365,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -392,10 +392,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.archery"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("axes")) {
 					if(p.hasPermission("mcmmo.skills.axes")) {
@@ -404,21 +404,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -431,10 +431,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.axes"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("acrobatics")) {
 					if(p.hasPermission("mcmmo.skills.acrobatics")) {
@@ -443,21 +443,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -470,10 +470,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.acrobatics"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("fishing")) {
 					if(p.hasPermission("mcmmo.skills.fishing")) {
@@ -482,21 +482,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -509,10 +509,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.fishing"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("excavation")) {
 					if(p.hasPermission("mcmmo.skills.excavation")) {
@@ -521,21 +521,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -548,10 +548,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.excavation"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("mining")) {
 					if(p.hasPermission("mcmmo.skills.mining")) {
@@ -560,21 +560,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -587,10 +587,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.mining"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("herbalism")) {;
 				if(p.hasPermission("mcmmo.skills.herbalism")) {
@@ -599,21 +599,21 @@ public class ClaimLevels extends JavaPlugin {
 						Integer.parseInt(args[1]);
 					}
 					catch(NumberFormatException ex) {
-						p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+						p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 						return true;
 					}
 					int levels = Integer.parseInt(args[1]);
 					int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 					if(oldamount < levels) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 						return true;
 					}
 					if(levels <= 0) {
-						p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+						p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 						return true;
 					}
 					if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 						return true;
 					}
 
@@ -626,10 +626,10 @@ public class ClaimLevels extends JavaPlugin {
 					}
 					dm.saveData();
 					ExperienceAPI.addLevel(p, skillType, levels);
-					p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+					p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 					return true;
 				} else if(!(p.hasPermission("mcmmo.skills.herbalism"))) {
-					p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+					p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 				}
 				} else if(skillType.equalsIgnoreCase("repair")) {
 					if(p.hasPermission("mcmmo.skills.repair")) {
@@ -638,21 +638,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -665,10 +665,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.repair"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(skillType.equalsIgnoreCase("woodcutting")) {
 					if(p.hasPermission("mcmmo.skills.woodcutting")) {
@@ -677,21 +677,21 @@ public class ClaimLevels extends JavaPlugin {
 							Integer.parseInt(args[1]);
 						}
 						catch(NumberFormatException ex) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.MUST_BE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.MUST_BE_NUMBER);
 							return true;
 						}
 						int levels = Integer.parseInt(args[1]);
 						int oldamount = dm.getData().getInt(p.getName().toLowerCase() + ".credits");
 						if(oldamount < levels) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You do not have enough credits!");
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You do not have enough credits!");
 							return true;
 						}
 						if(levels <= 0) {
-							p.sendMessage(Lang.PREFIX.toString() + " " + Lang.POSITIVE_NUMBER);
+							p.sendMessage(Lang.PREFIX.toString() + Lang.POSITIVE_NUMBER);
 							return true;
 						}
 						if(ExperienceAPI.getLevel(p, skillType)+levels>cap) {
-							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + " You have reached the maximum level for " + skillType);
+							p.sendMessage(Lang.PREFIX.toString() + ChatColor.RED + "You have reached the maximum level for " + skillType);
 							return true;
 						}
 
@@ -704,10 +704,10 @@ public class ClaimLevels extends JavaPlugin {
 						}
 						dm.saveData();
 						ExperienceAPI.addLevel(p, skillType, levels);
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + " You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.GREEN + "You have added " + ChatColor.GOLD + levels + ChatColor.GREEN +" levels to " + ChatColor.GOLD + skillType + ChatColor.GREEN + ".");
 						return true;
 					} else if(!(p.hasPermission("mcmmo.skills.woodcutting"))) {
-						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " You do not have access to this skill");
+						p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "You do not have access to this skill");
 					}
 				} else if(!(skillType.equalsIgnoreCase("taming") || skillType.equalsIgnoreCase("swords")
 						|| skillType.equalsIgnoreCase("unarmed")
@@ -720,10 +720,10 @@ public class ClaimLevels extends JavaPlugin {
 						|| skillType.equalsIgnoreCase("herbalism")
 						|| skillType.equalsIgnoreCase("repair")
 						|| skillType.equalsIgnoreCase("woodcutting"))) {
-					p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " That is not a skill");
+					p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "That is not a skill");
 				}
 			} else {
-				p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + " /redeem <skill> <levels>");
+				p.sendMessage(Lang.PREFIX.toString() + ChatColor.DARK_RED + "/redeem <skill> <levels>");
 			}
 		}
 		return false;
