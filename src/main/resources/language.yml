@@ -1,5 +1,5 @@
-prefix: "&8[&3ClaimLevels&8]"
-credit-prefix: "&8[&3LevelBalance&8]"
+prefix: "&8[&3ClaimLevels&8] "
+credit-prefix: "&8[&3LevelBalance&8] "
 player-only: "Sorry but that can only be run by a player!"
 must-be-number: "&4The amount must be a number"
 positive-number: "&4The amount must be a positive number"
