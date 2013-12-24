@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.xCyanide.ClaimLevels</groupId>
   <artifactId>ClaimLevels</artifactId>
-  <version>1.2</version>
+  <version>1.4</version>
   <name>ClaimLevels</name>
   <description>ClaimLevels</description>
   
@@ -21,7 +21,7 @@
   	<dependency>
       	<groupId>org.bukkit</groupId>
       	<artifactId>craftbukkit</artifactId>
-      	<version>1.6.2-R0.1-SNAPSHOT</version>
+      	<version>1.7.2-R0.2-SNAPSHOT</version>
   	</dependency>
   	<dependency>
     	<groupId>com.gmail.nossr50.mcMMO</groupId>
