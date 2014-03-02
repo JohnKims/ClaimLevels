@@ -717,6 +717,7 @@ public class ClaimLevels extends JavaPlugin {
 						|| skillType.equalsIgnoreCase("fishing")
 						|| skillType.equalsIgnoreCase("excavation")
 						|| skillType.equalsIgnoreCase("mining")
+						|| skillType.equalsIgnoreCase("mining")
 						|| skillType.equalsIgnoreCase("herbalism")
 						|| skillType.equalsIgnoreCase("repair")
 						|| skillType.equalsIgnoreCase("woodcutting"))) {
